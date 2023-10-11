@@ -1,64 +1,42 @@
-Test cases for '2-matrix_divided.py'
-=================================
+#!/usr/bin/python3
+"""
+python3 -c 'print(__import__("my_module").__doc__)'
+"""
 
-The function 'matrix_divided', divides all elements of a matrix
----------------------------------------------------------------
 
->>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+def matrix_divided(matrix, div):
+    """
+    python3 -c 'print(__import__("my_module").my_function.__doc__)'
+    """
+    if not isinstance(matrix, list) or not matrix:
+        raise TypeError(
+                "matrix must be a matrix (list of lists) of integers/floats"
+                )
 
-Cases to be evaluated:
+    for row in matrix:
+        if not isinstance(row, list):
+            raise TypeError(
+                    "matrix must be a matrix (list of lists)"
+                    " of integers/floats"
+                    )
 
-Case #1: test with zero arguments
->>> matrix_divided()
-Traceback (most recent call last):
-...
-TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+    for row in matrix:
+        for i in row:
+            if not isinstance(i, (int, float)):
+                raise TypeError(
+                        "matrix must be a matrix "
+                        "(list of lists) of integers/floats"
+                        )
 
-Case #2: test passing 1 argument in 'matrix'
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix)
-Traceback (most recent call last):
-...
-TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    row_length = len(matrix[0])
+    for row in matrix:
+        if len(row) != row_length:
+            raise TypeError("Each row of the matrix must have the same size")
 
-Case #3: test 'div' equal to 0
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 0)
-Traceback (most recent call last):
-...
-ZeroDivisionError: division by zero
+    if not isinstance(div, (int, float)):
+        raise TypeError("div must be a number")
 
-Case #4: test 'matrix' is not a list
->>> matrix_divided("Holberton", 98)
-Traceback (most recent call last):
-...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
 
-Case #5: test 'div' as a string
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, "98")
-Traceback (most recent call last):
-...
-TypeError: div must be a number
-
-Case #6: test different sizes of 'matrix'
->>> matrix = [[1, 2, 3], [4, 6]]
->>> matrix_divided(matrix, 1)
-Traceback (most recent call last):
-...
-TypeError: Each row of the matrix must have the same size
-
-Case #8: test passing an empty list
->>> matrix = []
->>> matrix_divided(matrix, 1)
-[]
-
-Case #9: test passsing an integer number to 'div'
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 2)
-[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
-
-Case #10: test passsing an float number to 'div'
->>> matrix = [[1, 2, 3], [4, 5, 6]]
->>> matrix_divided(matrix, 4.5)
-[[0.22, 0.44, 0.67], [0.89, 1.11, 1.33]]
+    return [[round(i / div, 2) for i in row] for row in matrix]
