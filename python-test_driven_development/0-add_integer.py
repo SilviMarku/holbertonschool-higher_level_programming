@@ -1,37 +1,15 @@
->>> add_integer = __import__('0-add_integer').add_integer
+#!/usr/bin/python3
+"""
+python3 -c 'print(__import__("my_module").__doc__)'
+"""
 
->>> add_integer(0, 0)
-0
->>> add_integer(15, 0)
-15
->>> add_integer(0, 15)
-15
->>> add_integer(-2, 2)
-0
->>> add_integer(2, -2)
-0
->>> add_integer(2)
-100
->>> add_integer()
-Traceback (most recent call last):
-TypeError: add_integer() missing 1 required positional argument: 'a'
->>> add_integer('a', 'b')
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> add_integer('a', 42)
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> add_integer('a')
-Traceback (most recent call last):
-TypeError: a must be an integer
->>> add_integer(42, 'b')
-Traceback (most recent call last):
-TypeError: b must be an integer
->>> add_integer(float('inf'), 0)
-Traceback (most recent call last):
-...
-OverflowError: cannot convert float infinity to integer
->>> add_integer(0, float('nan'))
-Traceback (most recent call last):
-...
-ValueError: cannot convert float NaN to integer
+
+def add_integer(a, b=98):
+    """
+    python3 -c 'print(__import__("my_module").my_function.__doc__)'
+    """
+    if not isinstance(a, int) and not isinstance(a, float):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, int) and not isinstance(b, float):
+        raise TypeError("b must be an integer")
+    return int(a) + int(b)
