@@ -77,3 +77,4 @@ class Rectangle:
         """Representation of the rectangle object"""
 
         return f"Rectangle({self.__width}, {self.__height})"
+        
