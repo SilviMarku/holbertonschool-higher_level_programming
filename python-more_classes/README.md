@@ -1,6 +1,6 @@
 **Why Python programming is awesome**: Python is renowned for its simplicity, readability, and extensive standard library. It supports diverse domains, has an active community, and its dynamic typing reduces code complexity. For example, the code below calculates the factorial of a number, showcasing Python's clarity and ease of use:
 
-```python
+
 def factorial(n):
     if n == 0:
         return 1
