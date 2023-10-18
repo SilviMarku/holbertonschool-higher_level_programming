@@ -1,15 +1,13 @@
 #!/usr/bin/python3
-
-'''
-    Python simple module
-    for demonstarative purpose
-'''
+"""
+python3 -c 'print(__import__("my_module").__doc__)'
+"""
 
 
 def lookup(obj):
-    '''
-        Function that prints all methods an properties
-        of a given object
-    '''
-
-    return dir(obj)
+    """
+    'print(__import__("my_module").my_function.__doc__)'
+    python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+    """
+    return (dir(obj))
+    
