@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""
-python3 -c 'print(__import__("my_module").__doc__)'
-"""
+
+'''
+    Python simple module
+    for demonstarative purpose
+'''
 
 
-class BaseGeometry:
-    """
-    python3 -c 'print(__import__("my_module").MyClass.__doc__)'
-    """
-    def area(self):
-        raise Exception("area() is not implemented")
+def lookup(obj):
+    '''
+        Function that prints all methods an properties
+        of a given object
+    '''
+
+    return dir(obj)
