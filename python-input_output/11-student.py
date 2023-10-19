@@ -23,4 +23,8 @@ class Student:
                     value = getattr(self, attr)
                     emp_dict[attr] = value
             return emp_dict
+
+    def reload_from_json(self, json):
+        for k, v in json.items():
+            setattr(self, k, v)
             
