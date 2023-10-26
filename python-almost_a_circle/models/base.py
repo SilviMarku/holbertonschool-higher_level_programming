@@ -25,7 +25,7 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
     
-     @staticmethod
+    @staticmethod
     def to_json_string(list_dictionaries):
         """
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
@@ -88,4 +88,4 @@ class Base:
             return l_inst
         except FileNotFoundError:
             return []
-            
+                                
