@@ -90,23 +90,15 @@ class Rectangle(Base):
         python3 -c 'print(__import__("my_module").my_function.__doc__)'
         python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
         """
-        if args:
-            a_index = 0
-            for arg in args:
-                if a_index == 0:
-                    self.id = arg
-                elif a_index == 1:
-                    self.width = arg
-                elif a_index == 2:
-                    self.height = arg
-                elif a_index == 3:
-                    self.x = arg
-                elif a_index == 4:
-                    self.y = arg
-                a_index += 1
+        attributes = ['id', 'width', 'height', 'x', 'y']
 
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+
+        if args:
+            for idx in range(len(args)):
+                setattr(self, attributes[idx], args[idx])
+            else:
+                for key, value in kwargs.items():
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """
