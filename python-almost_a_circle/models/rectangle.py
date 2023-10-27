@@ -2,6 +2,8 @@
 """
 python3 -c 'print(__import__("my_module").__doc__)'
 """
+
+
 from models.base import Base
 
 
@@ -119,4 +121,3 @@ class Rectangle(Base):
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
         self.id, self.x, self.y, self.width, self.height)
-        
